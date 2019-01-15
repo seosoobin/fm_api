@@ -1,4 +1,14 @@
 {
+  "name": "tornado-fm-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "8.11.4"
+  },
   "dependencies": {
     "express": "^4.16.4"
   }
