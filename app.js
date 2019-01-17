@@ -1,6 +1,8 @@
 var express = require('express');
 var path = require('path');
 var http = require('http');
+var db = require('./model/dbconnect');
+var config = require('./config');
 var bodyParser = require('body-parser');
 var app = express();
 
