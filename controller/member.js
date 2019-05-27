@@ -15,7 +15,7 @@ module.exports = {
     });
   },
 
-  createMember: function(req, res, next) {
+  createMember: function(req, res, next) {console.log("in");
     var memberObj = new Member(req.body);
 
     memberObj._id = new ObjectId();
