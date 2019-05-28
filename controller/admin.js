@@ -76,5 +76,36 @@ module.exports = {
       });
     });
   },
-    
+
+  getTeamManagerListById: function(req, res, next) {
+    Team.findOne({_id: req.params.id}, /*{password:0,"points.history":0,"device.token":0,"device.os":0,"device.authCode":0},*/ function(err, team) {
+      if(err) return res.status(500).json({message: err});
+      if(!team) return res.status(500).json({message: 'team not found'});
+
+      res.status(200).json({
+        message:"Find Managers By Team Object Id",
+        values:team.managers_id
+      });
+    });
+  },
+
+  registerMangerById: function(req, res, next) {
+    Team.findOne({_id: req.params.id}, /*{password:0,"points.history":0,"device.token":0,"device.os":0,"device.authCode":0},*/ function(err, team) {
+      if(err) return res.status(500).json({message: err});
+      if(!team) return res.status(500).json({message: 'team not found'});
+
+      team.managers_id = req.body.managers_id;
+
+      team.save(function(err){
+        if(err) return res.status(500).json({message : err});     
+        
+        res.status(200).json({
+            status:"Success",
+            message:"Successed to add Manager.",
+            values:team
+        });
+      });
+    });
+  },    
+
 };
