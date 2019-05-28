@@ -6,7 +6,20 @@ var teamSchema = new Schema({
     teamId        : String,
     photo         : String,
     isDeleted     : Boolean,
-    managers_id     : [{ type: Schema.Types.ObjectId, ref: 'member', index: true }],
+    members       :[{
+      name		      : String,
+      id            : String,
+      email         : String,
+      nationality   : String,
+      photo         : String,
+      isDeleted     : Boolean,
+      position      : [String],
+      date:{
+        create      : Date,
+        modify      : Date
+      },
+      age           : Number
+    }],
     date:{
       create      : Date,
       modify      : Date
