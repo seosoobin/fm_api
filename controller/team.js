@@ -75,9 +75,17 @@ module.exports = {
   },
 
   getMemberById: function(req, res, next) {
-    Member.findOne({_id: req.params.id}, /*{password:0,"points.history":0,"device.token":0,"device.os":0,"device.authCode":0},*/ function(err, member) {
+    Team.findOne({_id: req.params.id}, /*{password:0,"points.history":0,"device.token":0,"device.os":0,"device.authCode":0},*/ function(err, team) {
       if(err) return res.status(500).json({message: err});
-      if(!member) return res.status(500).json({message: 'member not found'});
+      if(!team) return res.status(500).json({message: 'team not found'});
+
+      var member = new Object();
+      
+      team.members.filter(function(v,i){
+        if(v._id == req.params.mid){
+          member = v;
+        }
+      });
 
       res.status(200).json({
         message:"Find Member By Object Id",
