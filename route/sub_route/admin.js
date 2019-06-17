@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var adminController = require('../../controller/admin');
+var teamController = require('../../controller/team');
 
 router
 
-.get 	('/team',                   adminController.getTeamList)
+.get 	('/team',                   teamController.getTeamList)
 .post 	('/team',                   adminController.createTeam)
 .delete ('/team',                   adminController.deleteTeamById)
 .put 	('/team/:id',               adminController.modifyTeamById)

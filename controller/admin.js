@@ -3,18 +3,6 @@ var ObjectId = require('mongoose').Types.ObjectId;
 
 module.exports = {
 
-  getTeamList: function(req, res, next) {
-    Team.find({}, /*{password:0,"points.history":0,"device.token":0,"device.os":0,"device.authCode":0},*/ function(err, teams) {
-      if(err) return res.status(500).json({message: err});
-      if(teams.length == 0) return res.status(500).json({message: 'There is no team.'});
-
-      res.status(200).json({
-        message:"Find Team List",
-        values:teams
-      });
-    });
-  },
-
   createTeam: function(req, res, next) {
     var teamObj = new Team(req.body);
 
