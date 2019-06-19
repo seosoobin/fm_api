@@ -4,7 +4,7 @@ logs
 npm-debug.log*
 
 #environment
-env/production.js
+.env/production.js
 
 # Runtime data
 pids
