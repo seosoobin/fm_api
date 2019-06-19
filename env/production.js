@@ -4,6 +4,5 @@ module.exports = {
       //uri: 'mongodb://localhost:27017/fm_dev'
     },
     frontServer:'http://localhost:3000',
-    test:"test"
   };
   
