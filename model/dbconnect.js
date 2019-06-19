@@ -2,15 +2,13 @@
 var mongoose = require( 'mongoose' );
 var config = require('../config');
 
-var dbURI = config.mongodb.uri;
-
 // Create the database connection
 mongoose.connect(config.mongodb.uri,{ useNewUrlParser: true });
 
 // CONNECTION EVENTS
 // When successfully connected
 mongoose.connection.on('connected', function () {
-  console.log('Mongoose default connection open to ' + dbURI);
+  console.log('Mongoose default connection open' );
 });
 
 // If the connection throws an error
